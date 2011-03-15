@@ -4,12 +4,17 @@
   <title><%= content_for?(:title) ? yield(:title) : "Sample App" %></title>
   <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
   <%= stylesheet_link_tag 'blueprint/print', :media => 'print' %>
+  <%= stylesheet_link_tag 'custom', :media => 'screen' %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>
 <body>
-
-<%= yield %>
-
-</body>
+    <div class="container">
+      <%= render 'layouts/header'%>
+      <section class="round">
+        <%= yield %>
+      </section>
+      <%= render "layouts/footer"%>
+    </div>
+  </body>
 </html>
